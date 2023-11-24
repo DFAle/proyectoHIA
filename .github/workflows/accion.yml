@@ -19,11 +19,11 @@ jobs:
     - name: Build and Push Docker Image
       uses: docker/build-push-action@v1
       with:
-        context: ./backend
-        file: ./backend/Dockerfile
+        path: ./backend  # Cambiado de 'context' a 'path'
+        dockerfile: ./backend/Dockerfile  # Cambiado de 'file' a 'dockerfile'
         push: true
         tags: ${{secrets.DOCKERHUB_USERNAME}}/backend:latest
-
+        
   frontend:
     runs-on: ubuntu-latest
     steps:
