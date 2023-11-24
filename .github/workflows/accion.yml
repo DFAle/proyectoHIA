@@ -20,7 +20,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         path: ./backend  # Cambiado de 'context' a 'path'
-        dockerfile: ./backend/Dockerfile  # Cambiado de 'file' a 'dockerfile'
+        file: ./backend/Dockerfile  # Cambiado de 'file' a 'dockerfile'
         push: true
         tags: ${{secrets.DOCKER_USERNAME}}/backend:latest
 
