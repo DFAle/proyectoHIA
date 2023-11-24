@@ -27,7 +27,7 @@ services:
     networks:
       - mongoCluster
     command: mongod --replSet myReplicaSet --bind_ip localhost,mongodb
-    ports:ls
+    ports:
       - "27017:27017"
   
   mongodb1:
@@ -52,17 +52,23 @@ networks:
   mongoCluster:
     external: true
 
- watchtower:
-    image: containrrr/watchtower
-    container_name: watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      -WACHTOWER_POLL_INTERVAL=10
-    depend_on:
-    - frontend
-    - backend
-    restart: always
+  #watchtower:
+   # image: containrrr/watchtower
+   # container_name: watchtower-container
+   # volumes:
+   #   - /var/run/docker.sock:/var/run/docker.sock
+   # environment:
+   #   - WACHTOWER_POLL_INTERVAL=10
+   #   - KEY=VALUE
+   # depends_on:
+   # - frontend-1
+   # - backend-1
+   # restart: always
+   # networks:
+   #   - mongoCluster
+      
+
+
   # mongo-express:
   #   image: mongo-express
   #   container_name: mongo-express
